@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.diskmanager.controller.MainController"
+	alignment="CENTER" hgap="10" vgap="10">
+	<padding>
+		<Insets top="25" bottom="10" left="25" right="25" />
+	</padding>
+
+	<MenuBar fx:id="fxMenu">
+		<menus>
+			<Menu text="Disk">
+				<items>
+					<MenuItem text="Get Info"/>
+				</items>
+			</Menu>
+		</menus>
+	</MenuBar>
+</GridPane>
+
