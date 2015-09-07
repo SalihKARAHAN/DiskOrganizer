@@ -7,14 +7,15 @@
 <?import javafx.scene.text.*?>
 
 
-<GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
-	hgap="10" vgap="10" fx:controller="org.diskmanager.controller.AuthController" styleClass="root">
+<GridPane xmlns:fx="http://javafx.com/fxml" alignment="CENTER"
+	hgap="10" vgap="10" fx:controller="org.diskmanager.controller.AuthController"
+	styleClass="root">
 	<padding>
 		<Insets top="25" bottom="10" left="25" right="25" />
 	</padding>
 
-	<Text id="welcome-text" text="Welcome" GridPane.columnIndex="0" GridPane.rowIndex="0"
-		GridPane.columnSpan="2" />
+	<Text id="welcome-text" text="Welcome" GridPane.columnIndex="0"
+		GridPane.rowIndex="0" GridPane.columnSpan="2" />
 
 	<Label text="User Name:" GridPane.columnIndex="0"
 		GridPane.rowIndex="1" />
