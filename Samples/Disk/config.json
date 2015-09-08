@@ -1,0 +1,7 @@
+{
+	"Initialize": 
+	{
+		"AppRootPath":"./Disk",
+		"AppDataPath":"./Disk/.Data/app.dmd"
+	}
+}
