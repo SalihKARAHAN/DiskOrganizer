@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.diskmanager;
+package org.diskmanager.provider.contract;
 
 /**
  * @author Salih.KARAHAN
