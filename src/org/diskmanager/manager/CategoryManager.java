@@ -1,8 +1,10 @@
 /**
  * 
  */
-package org.diskmanager;
+package org.diskmanager.manager;
 
+import org.diskmanager.provider.contract.IEnvironmentProvider;
+import org.diskmanager.provider.contract.IIOManager;
 import org.diskmanager.schema.Category;
 
 /**
