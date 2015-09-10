@@ -1,5 +1,9 @@
 package org.diskmanager;
-	
+
+import java.io.IOException;
+
+import org.diskmanager.view.Views;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -9,39 +13,60 @@ import javafx.scene.Scene;
 //import javafx.scene.layout.AnchorPane;
 
 public class Main extends Application {
-	
-	private Environment _environment;
-	
-	@Override
-	public void start(Stage primaryStage) {
-		try {
-			
-			Setup setup = new Setup();
-			setup.CheckSystem();
-			
-//			Button fxButtonLogin = new Button();
-//			fxButtonLogin.setText("Login");
-			
-//			Parent root = FXMLLoader.load(getClass().getResource("view/LoginView.fxml"));
-			Parent root = FXMLLoader.load(getClass().getResource("view/MainView.fxml"));
-			
-//			root.getChildren().add(fxButtonLogin);
-			
-			Scene scene = new Scene(root);
-			
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
-			primaryStage.setTitle("Disk Organizer");
-			primaryStage.show();
-			
-		} catch(Exception e) {
-			e.printStackTrace();
+
+	// private Environment _environment;
+	private static Main _Application;
+	private static Stage _stage;
+
+	/**
+	 * 
+	 */
+	public Main() {
+		// TODO Auto-generated constructor stub
+		if (_Application == null) {
+			_Application = this;
 		}
 	}
 	
+	public static Main GetClass(){
+		return _Application;
+	}
+
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			_stage = primaryStage;
+			Views.GetView(Constants.Pages.LOGIN_PAGE);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+	public static void PageLoader(String fxmlPath, boolean resizable, String title, String... externalStyleSheetPathList) {
+		try {
+			Parent page = FXMLLoader.load(Main.GetClass().getClass().getResource(fxmlPath));
+			Scene scene = new Scene(page);
+
+			if (externalStyleSheetPathList != null) {
+				for (int i = 0; i < externalStyleSheetPathList.length; i++) {
+					String nextPath = externalStyleSheetPathList[i];
+					scene.getStylesheets().add(Main.GetClass().getClass().getResource(nextPath).toExternalForm());
+				}
+			}
+			_stage.setScene(scene);
+			_stage.setResizable(resizable);
+			_stage.setTitle(title);
+			
+			_stage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
