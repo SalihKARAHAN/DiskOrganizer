@@ -8,5 +8,11 @@ package org.diskmanager.schema;
  *
  */
 public class File {
-
+	private String _name;
+	private float _size;
+	private String _extension;
+	
+	public void Delete(){
+		
+	}	
 }

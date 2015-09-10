@@ -24,6 +24,10 @@ public class CategoryManager {
 		_io = ioManager;
 		_environment = environmentProvider;
 	}
+	
+	void CreateCategory(String name){
+		CreateCategory(name,null);
+	}
 
 	void CreateCategory(String name, Category parentCategory) {
 		// ToDo@salih#1 Create Directory for Category
