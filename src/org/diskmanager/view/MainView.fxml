@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.lang.String?>
 <?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
@@ -9,17 +10,22 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane alignment="CENTER" hgap="10.0" styleClass="root" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.diskmanager.controller.MainController">
-  <MenuBar fx:id="fxMenu" prefWidth="500.0" GridPane.columnIndex="0" GridPane.columnSpan="10" GridPane.rowIndex="0">
-    <menus>
-      <Menu text="Disk">
-        <items>
-          <MenuItem text="Get Info" />
-        </items>
-      </Menu>
-    </menus>
-  </MenuBar>
-  <TreeView GridPane.columnIndex="0" GridPane.columnSpan="10" GridPane.rowIndex="1" GridPane.rowSpan="5" />
-</GridPane>
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="root"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+	fx:controller="org.diskmanager.controller.MainController">
+	<children>
+		<MenuBar id="menubar" maxWidth="800.0" minWidth="800.0">
+			<menus>
+				<Menu text="Disk">
+					<items>
+						<MenuItem text="Get Info" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<TreeView id="treeview" fx:id="fxCategoryViewer" layoutY="24.0" />
+	</children>
+</AnchorPane>
