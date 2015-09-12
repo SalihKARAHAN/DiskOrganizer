@@ -9,7 +9,7 @@ package org.diskmanager;
  */
 public class EnvironmentCollector {
 	
-	public static Environment GetEnvironment(){
+	public static EnvironmentType GetEnvironment(){
 		return null;
 	}
 

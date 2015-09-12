@@ -7,7 +7,7 @@ package org.diskmanager;
  * @author Salih.KARAHAN
  *
  */
-public enum Environment {
+public enum EnvironmentType {
 	Windows,
 	Linux,
 	Mac
