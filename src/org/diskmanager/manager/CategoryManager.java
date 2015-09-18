@@ -25,11 +25,11 @@ public class CategoryManager {
 		_environment = environmentProvider;
 	}
 	
-	void CreateCategory(String name){
+	public void CreateCategory(String name){
 		CreateCategory(name,null);
 	}
 
-	void CreateCategory(String name, Category parentCategory) {
+	public void CreateCategory(String name, Category parentCategory) {
 		// ToDo@salih#1 Create Directory for Category
 		if (parentCategory == null) {
 			String rootPath = _environment.GetDiskRootPath();

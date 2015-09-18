@@ -13,4 +13,6 @@ public final class Constants {
 		public static final String MAIN_PAGE = "MAIN_PAGE";
 		public static final String LOADER_PAGE = "LOADER_PAGE";
 	}
+	
+	public static final String DEFAULT_SETTINGS = "{}";
 }
