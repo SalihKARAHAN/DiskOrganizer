@@ -27,8 +27,8 @@ public class Main extends Application {
 			_Application = this;
 		}
 	}
-	
-	public static Main GetClass(){
+
+	public static Main GetClass() {
 		return _Application;
 	}
 
@@ -37,17 +37,29 @@ public class Main extends Application {
 		try {
 			_stage = primaryStage;
 			Views.GetView(Constants.Pages.LOADER_PAGE);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
-		launch(args);
+		try {
+			Setup setup = new Setup();
+			setup.CheckSystem();
+			setup.Bootstrap();
+			launch(args);
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public static void PageLoader(String fxmlPath, boolean resizable, String title, String... externalStyleSheetPathList) {
+	public static void PageLoader(String fxmlPath, boolean resizable, String title,
+			String... externalStyleSheetPathList) {
 		try {
 			Parent page = FXMLLoader.load(Main.GetClass().getClass().getResource(fxmlPath));
 			Scene scene = new Scene(page);
@@ -61,7 +73,7 @@ public class Main extends Application {
 			_stage.setScene(scene);
 			_stage.setResizable(resizable);
 			_stage.setTitle(title);
-			
+
 			_stage.show();
 
 		} catch (IOException e) {
