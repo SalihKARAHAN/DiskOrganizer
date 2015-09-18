@@ -23,7 +23,8 @@ public abstract class BaseIOManager implements IIOManager {
 	@Override
 	public Directory CreateDirectory(String name, String targetPath) {
 		// TODO Auto-generated method stub
-		return null;
+		Directory directory = new Directory();
+		return directory;
 	}
 
 	/*
@@ -36,7 +37,8 @@ public abstract class BaseIOManager implements IIOManager {
 	@Override
 	public File CreateFile(String name, Object data, String targetPath) {
 		// TODO Auto-generated method stub
-		return null;
+		File file = new File();
+		return file;
 	}
 
 	/*

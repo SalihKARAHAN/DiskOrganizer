@@ -47,14 +47,17 @@ public final class Setup {
 		switch (environmentType) {
 		case Windows: {
 			Container.Register(IIOManager.class, WindowsIOManager.class);
+			Container.Register(IEnvironmentProvider.class, EnvironmentManager.class);
 		}
 			break;
 		case Mac: {
 			Container.Register(IIOManager.class, MacIOManager.class);
+			Container.Register(IEnvironmentProvider.class, EnvironmentManager.class);
 		}
 			break;
 		case Linux: {
 			Container.Register(IIOManager.class, LinuxIOManager.class);
+			Container.Register(IEnvironmentProvider.class, EnvironmentManager.class);
 		}
 			break;
 
@@ -105,6 +108,7 @@ public final class Setup {
 	private void Initialize() throws InstantiationException, IllegalAccessException {
 		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class);
 		IIOManager io = Container.Resolve(IIOManager.class);
+		
 		Directory systemDirectory = io.CreateDirectory(".Disk", environmentProvider.GetDiskRootPath());
 		File settingsFile = io.CreateFile(".settings.json", Constants.DEFAULT_SETTINGS, systemDirectory.GetPath());
 		// CategoryManager manager = Container.Resolve();

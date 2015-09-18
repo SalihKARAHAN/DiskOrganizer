@@ -3,6 +3,8 @@
  */
 package org.diskmanager.controller;
 
+import javafx.scene.control.Label;
+
 /**
  * @author Salih.KARAHAN
  *
@@ -10,12 +12,17 @@ package org.diskmanager.controller;
 public class LoaderController {
 	
 	@javafx.fxml.FXML 
-	javafx.scene.control.ProgressBar _fxProgressBar;
+	public Label fxLabelProcess;
 
 	
 	public void initialize(){
+//		fxLabelProcess = new Label("Setted Label");
+//		fxLabelProcess.setText("initialize runned");
+		
 	}
 	
+//	@javafx.fxml.FXML 
 	public void SetProgress(){
+		fxLabelProcess.setText("SettedProcess");
 	}
 }

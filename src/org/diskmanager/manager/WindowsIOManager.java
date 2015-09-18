@@ -3,22 +3,11 @@
  */
 package org.diskmanager.manager;
 
-import org.diskmanager.schema.File;
+import org.diskmanager.provider.contract.IIOManager;
 
 /**
  * @author Salih.KARAHAN
  *
  */
-public class WindowsIOManager extends BaseIOManager {
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.diskmanager.manager.BaseIOManager#CreateFile(java.lang.String,
-	 * java.lang.Object, java.lang.String)
-	 */
-	@Override
-	public File CreateFile(String name, Object data, String targetPath) {
-		// TODO Auto-generated method stub
-		return super.CreateFile(name, data, targetPath);
-	}
+public class WindowsIOManager extends BaseIOManager implements IIOManager {
 }
