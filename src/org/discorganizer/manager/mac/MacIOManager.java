@@ -1,7 +1,9 @@
 /**
  * 
  */
-package org.discorganizer.manager;
+package org.discorganizer.manager.mac;
+
+import org.discorganizer.manager.BaseIOManager;
 
 /**
  * @author Salih.KARAHAN
