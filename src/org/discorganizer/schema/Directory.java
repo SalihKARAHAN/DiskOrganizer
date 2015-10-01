@@ -14,6 +14,13 @@ public class Directory {
 	private java.util.List<File> _fileList;
 	
 	/**
+	 * 
+	 */
+	public Directory(String name,String targetPath) {
+		
+	}
+	
+	/**
 	 * @return
 	 */
 	public String GetPath() {

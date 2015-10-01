@@ -23,7 +23,8 @@ public abstract class BaseIOManager implements IIOManager {
 	@Override
 	public Directory CreateDirectory(String name, String targetPath) {
 		// TODO Auto-generated method stub
-		Directory directory = new Directory();
+		
+		Directory directory = new Directory(name,targetPath);
 		return directory;
 	}
 

@@ -23,7 +23,6 @@ public final class Container {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	@SuppressWarnings("unchecked")
 	public static <TResolvedType> TResolvedType Resolve(Class<TResolvedType> resolvedType)
 			throws InstantiationException, IllegalAccessException {
 		return (TResolvedType) _map.get(resolvedType.getName()).newInstance();

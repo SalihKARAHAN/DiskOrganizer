@@ -5,9 +5,9 @@ package org.discorganizer;
 
 import org.discorganizer.library.ioc.Container;
 import org.discorganizer.manager.EnvironmentManager;
-import org.discorganizer.manager.LinuxIOManager;
-import org.discorganizer.manager.MacIOManager;
-import org.discorganizer.manager.WindowsIOManager;
+import org.discorganizer.manager.linux.LinuxIOManager;
+import org.discorganizer.manager.mac.MacIOManager;
+import org.discorganizer.manager.windows.WindowsIOManager;
 import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.provider.contract.IIOManager;
 import org.discorganizer.schema.Directory;

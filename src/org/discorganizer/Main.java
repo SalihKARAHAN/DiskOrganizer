@@ -36,7 +36,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			_stage = primaryStage;
-			Views.GetView(Constants.Pages.TEST_PAGE);
+			Views.GetView(Constants.Pages.MAIN_PAGE);
 
 		} catch (Exception e) {
 			e.printStackTrace();

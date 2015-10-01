@@ -3,6 +3,10 @@
  */
 package org.discorganizer.manager;
 
+import java.net.URL;
+import java.security.CodeSource;
+import java.util.Properties;
+
 import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.schema.Environment;
 
@@ -22,7 +26,8 @@ public class EnvironmentManager implements IEnvironmentProvider {
 	@Override
 	public String GetDiskRootPath() {
 		// TODO Auto-generated method stub
-		return null;
+		Properties properties = System.getProperties();
+		return null;		
 	}
 
 }
