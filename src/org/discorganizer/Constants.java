@@ -19,6 +19,7 @@ public final class Constants {
 	public static class SystemProperty {
 		/**
 		 * Path'lerin hangi karakter ile ayrýldýðý bilgisini tutan anahtar
+		 * <b>Örn:</b> ";"
 		 */
 		public static final String PATH_SEPERATOR = "path.separator";
 		
@@ -54,6 +55,7 @@ public final class Constants {
 		
 		/**
 		 * Ýþletim sisteminde dizin adreslerini ayýran karakter bilgisini tutan anahtar
+		 * <b>Örn:</b> "\"
 		 */
 		public static final String FILE_SEPERATOR = "file.separator"; // \
 		

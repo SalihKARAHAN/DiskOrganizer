@@ -3,6 +3,8 @@
  */
 package org.discorganizer.manager;
 
+import org.discorganizer.library.ioc.Container;
+import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.provider.contract.IIOManager;
 import org.discorganizer.schema.Directory;
 import org.discorganizer.schema.File;
@@ -12,6 +14,16 @@ import org.discorganizer.schema.File;
  *
  */
 public abstract class BaseIOManager implements IIOManager {
+
+	private final IEnvironmentProvider _environmentProvider;
+
+	/**
+	 * 
+	 */
+	BaseIOManager() {
+		// TODO Auto-generated constructor stub
+		_environmentProvider = Container.Resolve(IEnvironmentProvider.class);
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -23,8 +35,14 @@ public abstract class BaseIOManager implements IIOManager {
 	@Override
 	public Directory CreateDirectory(String name, String targetPath) {
 		// TODO Auto-generated method stub
-		
-		Directory directory = new Directory(name,targetPath);
+
+		String mergedPath = _environmentProvider.MergePath(targetPath, name);
+		java.io.File directory = new java.io.File(mergedPath);
+		if (!directory.exists()) {
+			
+		}
+
+		Directory directory = new Directory(name, targetPath);
 		return directory;
 	}
 

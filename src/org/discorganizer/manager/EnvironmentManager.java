@@ -7,6 +7,7 @@ import java.net.URL;
 import java.security.CodeSource;
 import java.util.Properties;
 
+import org.discorganizer.exception.InvalidOperationSystemNameException;
 import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.schema.Environment;
 
@@ -15,19 +16,43 @@ import org.discorganizer.schema.Environment;
  *
  */
 public class EnvironmentManager implements IEnvironmentProvider {
-	
-	public static Environment GetEnvironment(){
-		return new Environment();
+
+	// ToDo#3@salih=> EnvironmentManager ile Environment nesnesi arasýndaki iþ
+	// bölümü netleþtirilmeli
+	private static Environment _environment;
+
+	public Environment GetEnvironment() throws InvalidOperationSystemNameException {
+		_environment = new Environment();
+		return _environment;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.diskmanager.provider.contract.IEnvironmentProvider#GetDiskRootPath()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.discorganizer.provider.contract.IEnvironmentProvider#GetDiskRootPath(
+	 * )
 	 */
 	@Override
 	public String GetDiskRootPath() {
 		// TODO Auto-generated method stub
-		Properties properties = System.getProperties();
-		return null;		
+		String path = _environment.GetWorkingRootPath();
+		return path;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.discorganizer.provider.contract.IEnvironmentProvider#MergePath(java.
+	 * lang.String[])
+	 */
+	@Override
+	public String MergePath(String... partialPaths) {
+		// TODO Auto-generated method stub
+		String seperator = _environment.GetPathSeperator();
+		String mergedPath = String.join(seperator, partialPaths);
+		return mergedPath;
 	}
 
 }

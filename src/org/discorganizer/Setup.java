@@ -3,6 +3,7 @@
  */
 package org.discorganizer;
 
+import org.discorganizer.exception.InvalidOperationSystemNameException;
 import org.discorganizer.library.ioc.Container;
 import org.discorganizer.manager.EnvironmentManager;
 import org.discorganizer.manager.linux.LinuxIOManager;
@@ -30,9 +31,13 @@ public final class Setup {
 	 * uygulamýnýn çalýþýp çalýþmadýðýný kontrol edecek Eðer eski kayýtlar varsa
 	 * o kayýtlarý okuyorak sistemi açacak Eðer ilk defa açýlýyorsa sistem için
 	 * gereklilikleri hazýrlayacak ve sistemi baþlatacak
+	 * @throws InvalidOperationSystemNameException 
+	 * @throws ReflectiveOperationException 
+	 * @throws InstantiationException 
 	 */
-	public void CheckSystem() {
-		Environment environment = EnvironmentManager.GetEnvironment();
+	public void CheckSystem() throws InvalidOperationSystemNameException, InstantiationException, ReflectiveOperationException {
+		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class);
+		Environment environment = environmentProvider.GetEnvironment();
 
 		RegisterSystemComponents(environment.GetEnvironmentType());
 
