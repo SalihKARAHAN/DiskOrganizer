@@ -3,27 +3,35 @@
  */
 package org.discorganizer.controller;
 
+import java.awt.ContainerOrderFocusTraversalPolicy;
+
+import org.discorganizer.library.ioc.Container;
+import org.discorganizer.provider.contract.IEnvironmentProvider;
+import org.discorganizer.provider.contract.IIOManager;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+
 /**
  * @author Salih.KARAHAN
  *
  */
 public class MainController {
-	@javafx.fxml.FXML
-	private javafx.scene.control.TreeView<String> fxCategoryViewer;
-
-	// the initialize method is automatically invoked by the FXMLLoader - it's
-	// magic
-	public void initialize() {
-		loadTreeItems("initial 1", "initial 2", "initial 3");
+	private final IEnvironmentProvider _environmentProvider;
+	private final IIOManager _io;
+	
+	/**
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 * 
+	 */
+	public MainController() throws InstantiationException, IllegalAccessException {
+		_environmentProvider = Container.Resolve(IEnvironmentProvider.class);
+		_io = Container.Resolve(IIOManager.class);
 	}
-
-	public void loadTreeItems(String... rootItems) {
-		javafx.scene.control.TreeItem<String> root = new javafx.scene.control.TreeItem<String>("Root Node");
-		root.setExpanded(true);
-		for (String itemString : rootItems) {
-			root.getChildren().add(new javafx.scene.control.TreeItem<String>(itemString));
-		}
-
-		fxCategoryViewer.setRoot(root);
+	
+	public void AddCategoryContextClick(){
+		System.out.println("AddCategoryContextClick");
 	}
 }
