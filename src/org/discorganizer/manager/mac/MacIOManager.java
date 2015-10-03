@@ -12,7 +12,7 @@ import org.discorganizer.provider.contract.IIOManager;
  */
 public class MacIOManager extends BaseIOManager implements IIOManager {
 
-	MacIOManager() {
+	public MacIOManager() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
