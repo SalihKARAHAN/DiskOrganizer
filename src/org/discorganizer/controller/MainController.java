@@ -26,7 +26,7 @@ public class MainController {
 	 * @throws InstantiationException 
 	 * 
 	 */
-	public MainController() throws InstantiationException, IllegalAccessException {
+	public MainController() {
 		_environmentProvider = Container.Resolve(IEnvironmentProvider.class);
 		_io = Container.Resolve(IIOManager.class);
 	}

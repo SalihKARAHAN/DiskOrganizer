@@ -2,6 +2,7 @@ package org.discorganizer;
 
 import java.io.IOException;
 
+import org.discorganizer.exception.InvalidOperationSystemNameException;
 import org.discorganizer.view.Views;
 
 import javafx.application.Application;
@@ -43,7 +44,7 @@ public class Main extends Application {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidOperationSystemNameException {
 		try {
 			Setup setup = new Setup();
 			setup.CheckSystem();

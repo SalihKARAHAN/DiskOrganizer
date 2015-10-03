@@ -27,15 +27,13 @@ public final class Setup {
 	private ApplicationState _state;
 
 	/**
-	 * Bu metot uygulama her çalýþtýðýnda bulunduðu disk üzerinde daha önce
-	 * uygulamýnýn çalýþýp çalýþmadýðýný kontrol edecek Eðer eski kayýtlar varsa
-	 * o kayýtlarý okuyorak sistemi açacak Eðer ilk defa açýlýyorsa sistem için
-	 * gereklilikleri hazýrlayacak ve sistemi baþlatacak
-	 * @throws InvalidOperationSystemNameException 
-	 * @throws ReflectiveOperationException 
-	 * @throws InstantiationException 
+	 * Bu metot uygulama her ï¿½alï¿½ï¿½tï¿½ï¿½ï¿½nda bulunduï¿½u disk ï¿½zerinde daha ï¿½nce
+	 * uygulamï¿½nï¿½n ï¿½alï¿½ï¿½ï¿½p ï¿½alï¿½ï¿½madï¿½ï¿½ï¿½nï¿½ kontrol edecek Eï¿½er eski kayï¿½tlar varsa
+	 * o kayï¿½tlarï¿½ okuyorak sistemi aï¿½acak Eï¿½er ilk defa aï¿½ï¿½lï¿½yorsa sistem iï¿½in
+	 * gereklilikleri hazï¿½rlayacak ve sistemi baï¿½latacak
+	 * @throws InvalidOperationSystemNameException
 	 */
-	public void CheckSystem() throws InvalidOperationSystemNameException, InstantiationException, ReflectiveOperationException {
+	public void CheckSystem() throws InvalidOperationSystemNameException {
 		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class);
 		Environment environment = environmentProvider.GetEnvironment();
 
@@ -110,7 +108,7 @@ public final class Setup {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	private void Initialize() throws InstantiationException, IllegalAccessException {
+	private void Initialize(){
 		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class);
 		IIOManager io = Container.Resolve(IIOManager.class);
 		

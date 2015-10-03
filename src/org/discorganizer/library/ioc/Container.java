@@ -23,9 +23,22 @@ public final class Container {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public static <TResolvedType> TResolvedType Resolve(Class<TResolvedType> resolvedType)
-			throws InstantiationException, IllegalAccessException {
-		return (TResolvedType) _map.get(resolvedType.getName()).newInstance();
+	public static <TResolvedType> TResolvedType Resolve(Class<TResolvedType> resolvedType) {
+		TResolvedType resolvedTypeInstance = null;
+		try {
+			Class<?> returned = _map.get(resolvedType.getName());
+			if (returned != null) {
+				resolvedTypeInstance = (TResolvedType) returned.newInstance();
+			}
+//			resolvedTypeInstance =  (TResolvedType) _map.get(resolvedType.getName()).newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resolvedTypeInstance;
 	}
 
 	/**

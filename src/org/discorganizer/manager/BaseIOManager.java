@@ -20,7 +20,7 @@ public abstract class BaseIOManager implements IIOManager {
 	/**
 	 * 
 	 */
-	BaseIOManager() {
+	protected BaseIOManager() {
 		// TODO Auto-generated constructor stub
 		_environmentProvider = Container.Resolve(IEnvironmentProvider.class);
 	}
@@ -42,8 +42,8 @@ public abstract class BaseIOManager implements IIOManager {
 			
 		}
 
-		Directory directory = new Directory(name, targetPath);
-		return directory;
+		Directory directoryInfo = new Directory(name, targetPath);
+		return directoryInfo;
 	}
 
 	/*

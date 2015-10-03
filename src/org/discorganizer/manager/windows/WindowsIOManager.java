@@ -11,4 +11,9 @@ import org.discorganizer.provider.contract.IIOManager;
  *
  */
 public class WindowsIOManager extends BaseIOManager implements IIOManager {
+
+	WindowsIOManager() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }
