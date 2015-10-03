@@ -35,9 +35,9 @@ public class Environment {
 		// TODO Auto-generated method stub
 		// return null;
 
-		// TODO #2: Test etme amacýyla þimdilik NotInitialize dönülmüþtür! Daha
-		// sonra burada bazý kontroller sonucu uygulamanýn diskteki durumunu
-		// çözümleyecek bir iþlemin gerçekleþtirilmesi gerekmektedir!
+		// TODO #2: Test etme amacï¿½yla ï¿½imdilik NotInitialize dï¿½nï¿½lmï¿½ï¿½tï¿½r! Daha
+		// sonra burada bazï¿½ kontroller sonucu uygulamanï¿½n diskteki durumunu
+		// ï¿½ï¿½zï¿½mleyecek bir iï¿½lemin gerï¿½ekleï¿½tirilmesi gerekmektedir!
 		return ApplicationState.NotInitialize;
 	}
 
@@ -46,10 +46,11 @@ public class Environment {
 	}
 
 	private EnvironmentType SetEnvironmentType() throws InvalidOperationSystemNameException {
-
 		switch (System.getProperty(Constants.SystemProperty.OS_NAME)) {
 		case "Windows 8.1":
 			return EnvironmentType.Windows;
+		case "Mac OS X":
+			return EnvironmentType.Mac;
 		default:
 			throw new InvalidOperationSystemNameException();
 		}
@@ -63,7 +64,7 @@ public class Environment {
 		return _workingRootPath;
 	}
 
-	public String GetPathSeperator(){
+	public String GetPathSeperator() {
 		return _fileSeperator;
 	}
 }
