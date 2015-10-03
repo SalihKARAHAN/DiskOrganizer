@@ -24,13 +24,24 @@ public final class Container {
 	 * @throws IllegalAccessException
 	 */
 	public static <TResolvedType> TResolvedType Resolve(Class<TResolvedType> resolvedType) {
+		return Resolve(resolvedType, null);
+	}
+
+	public static <TResolvedType> TResolvedType Resolve(Class<TResolvedType> resolvedType,
+			Class<? extends TResolvedType> defaultResolveType) {
 		TResolvedType resolvedTypeInstance = null;
+
 		try {
-			Class<?> returned = _map.get(resolvedType.getName());
-			if (returned != null) {
-				resolvedTypeInstance = (TResolvedType) returned.newInstance();
+			if (defaultResolveType == null) {
+				Class<?> returned = _map.get(resolvedType.getName());
+				if (returned != null) {
+					resolvedTypeInstance = (TResolvedType) returned.newInstance();
+				}
+			} else {
+				resolvedTypeInstance = (TResolvedType) defaultResolveType.newInstance();
 			}
-//			resolvedTypeInstance =  (TResolvedType) _map.get(resolvedType.getName()).newInstance();
+			// resolvedTypeInstance = (TResolvedType)
+			// _map.get(resolvedType.getName()).newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

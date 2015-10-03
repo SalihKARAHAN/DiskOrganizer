@@ -31,10 +31,13 @@ public final class Setup {
 	 * uygulam�n�n �al���p �al��mad���n� kontrol edecek E�er eski kay�tlar varsa
 	 * o kay�tlar� okuyorak sistemi a�acak E�er ilk defa a��l�yorsa sistem i�in
 	 * gereklilikleri haz�rlayacak ve sistemi ba�latacak
+	 * 
 	 * @throws InvalidOperationSystemNameException
 	 */
 	public void CheckSystem() throws InvalidOperationSystemNameException {
-		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class);
+		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class,
+				EnvironmentManager.class);
+		// Environment environment = new Environment();
 		Environment environment = environmentProvider.GetEnvironment();
 
 		RegisterSystemComponents(environment.GetEnvironmentType());
@@ -73,8 +76,9 @@ public final class Setup {
 
 	/**
 	 * Second Method
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
+	 * 
+	 * @throws IllegalAccessException
+	 * @throws InstantiationException
 	 * 
 	 * @throws Exception
 	 */
@@ -108,10 +112,10 @@ public final class Setup {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	private void Initialize(){
+	private void Initialize() {
 		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class);
 		IIOManager io = Container.Resolve(IIOManager.class);
-		
+
 		Directory systemDirectory = io.CreateDirectory(".Disk", environmentProvider.GetDiskRootPath());
 		File settingsFile = io.CreateFile(".settings.json", Constants.DEFAULT_SETTINGS, systemDirectory.GetPath());
 		// CategoryManager manager = Container.Resolve();
