@@ -45,18 +45,10 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) throws InvalidOperationSystemNameException {
-		try {
 			Setup setup = new Setup();
 			setup.CheckSystem();
 			setup.Bootstrap();
 			launch(args);
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public static void PageLoader(String fxmlPath, boolean resizable, String title,

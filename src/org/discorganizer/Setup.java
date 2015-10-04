@@ -82,7 +82,7 @@ public final class Setup {
 	 * 
 	 * @throws Exception
 	 */
-	public void Bootstrap() throws InstantiationException, IllegalAccessException {
+	public void Bootstrap() {
 		// TODO Auto-generated method stub
 
 		switch (_state) {
