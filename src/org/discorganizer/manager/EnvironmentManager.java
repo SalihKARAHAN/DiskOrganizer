@@ -17,8 +17,8 @@ import org.discorganizer.schema.Environment;
  */
 public class EnvironmentManager implements IEnvironmentProvider {
 
-	// ToDo#3@salih=> EnvironmentManager ile Environment nesnesi arasýndaki iþ
-	// bölümü netleþtirilmeli
+	// ToDo#3@salih=> EnvironmentManager ile Environment nesnesi arasï¿½ndaki iï¿½
+	// bï¿½lï¿½mï¿½ netleï¿½tirilmeli
 	private static Environment _environment;
 
 	public Environment GetEnvironment() throws InvalidOperationSystemNameException {

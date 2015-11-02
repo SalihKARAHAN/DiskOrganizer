@@ -74,4 +74,8 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	public static javafx.stage.Stage GetPrimaryScane(){
+		return _stage;
+	}
 }

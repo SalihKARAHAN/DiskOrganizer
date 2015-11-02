@@ -18,13 +18,17 @@ public interface IIOManager {
 	 */
 	Directory CreateDirectory(String name, String targetPath);
 	
+	Directory CreateDirectory(String name, Directory ownderDirectory);
+	
 	/**
 	 * 
 	 * @param name file name
 	 * @param data file content
 	 */
-	File CreateFile(String name, Object data, String targetPath); // 
+	File CreateFile(String name, byte[] dataContent, String targetPath);
 	
+	File CreateFile(String name, byte[] dataContent, Directory ownerDirectory);
+
 	Directory MoveDirectory(String currentPath, String targetPath);
 	
 	File MoveFile(String currentPath, String targetPath);

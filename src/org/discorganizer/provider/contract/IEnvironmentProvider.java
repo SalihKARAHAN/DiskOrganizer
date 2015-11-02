@@ -11,6 +11,7 @@ import org.discorganizer.schema.Environment;
  *
  */
 public interface IEnvironmentProvider {
+
 	Environment GetEnvironment() throws InvalidOperationSystemNameException;
 
 	/**

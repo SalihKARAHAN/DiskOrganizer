@@ -3,6 +3,10 @@
  */
 package org.discorganizer;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+
 import org.discorganizer.exception.InvalidOperationSystemNameException;
 import org.discorganizer.library.ioc.Container;
 import org.discorganizer.manager.EnvironmentManager;
@@ -12,6 +16,7 @@ import org.discorganizer.manager.windows.WindowsIOManager;
 import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.provider.contract.IIOManager;
 import org.discorganizer.schema.Directory;
+import org.discorganizer.schema.Disk;
 import org.discorganizer.schema.Environment;
 import org.discorganizer.schema.File;
 
@@ -116,8 +121,9 @@ public final class Setup {
 		IEnvironmentProvider environmentProvider = Container.Resolve(IEnvironmentProvider.class);
 		IIOManager io = Container.Resolve(IIOManager.class);
 
-		Directory systemDirectory = io.CreateDirectory(".Disk", environmentProvider.GetDiskRootPath());
-		File settingsFile = io.CreateFile(".settings.json", Constants.DEFAULT_SETTINGS, systemDirectory.GetPath());
+		Directory systemDirectory = io.CreateDirectory("Disk", environmentProvider.GetDiskRootPath());
+		File settingsFile = io.CreateFile("settings.conf", "{}".getBytes(), systemDirectory);
+		Disk.AddSystemDirectory(systemDirectory);
 		// CategoryManager manager = Container.Resolve();
 		// manager.CreateCategory(name);
 	}
