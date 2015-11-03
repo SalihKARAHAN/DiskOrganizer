@@ -33,7 +33,9 @@ public abstract class BaseIOManager implements IIOManager {
 
 	@Override
 	public Directory CreateDirectory(String name, Directory ownderDirectory) {
-		return this.CreateDirectory(name, ownderDirectory.GetPath());
+		Directory directory = this.CreateDirectory(name, ownderDirectory.GetPath());
+		ownderDirectory.AddChildDirectory(directory);
+		return directory;
 	}
 
 	@Override

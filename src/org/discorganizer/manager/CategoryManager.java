@@ -6,6 +6,7 @@ package org.discorganizer.manager;
 import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.provider.contract.IIOManager;
 import org.discorganizer.schema.Category;
+import org.discorganizer.schema.Disk;
 
 /**
  * @author Salih.KARAHAN
@@ -32,8 +33,8 @@ public class CategoryManager {
 	public void CreateCategory(String name, Category parentCategory) {
 		// ToDo@salih#1 Create Directory for Category
 		if (parentCategory == null) {
-			String rootPath = _environment.GetDiskRootPath();
-			_io.CreateDirectory(name, rootPath);
+//			String rootPath = _environment.GetDiskRootPath();
+			_io.CreateDirectory(name, Disk.GetDiskPath());
 		}else {
 			_io.CreateDirectory(name, parentCategory.GetDirectory().GetPath());
 		}

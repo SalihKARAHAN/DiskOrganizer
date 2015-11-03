@@ -19,5 +19,9 @@ public class Disk {
 	public static void AddSystemDirectory(Directory systemDirectory) {
 		_disk._systemDirectory = systemDirectory;
 	}
+	
+	public static String GetDiskPath(){
+		return _systemDirectory.GetPath();
+	}
 
 }

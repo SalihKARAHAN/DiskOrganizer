@@ -61,4 +61,8 @@ public class Directory {
 	public void AddFile(File file){
 		_fileList.add(file); // todo: burada hata kontrolü ve hata mesajı gösterimi gibi birşey yapılmalı.
 	}
+
+	public void AddChildDirectory(Directory directory) {
+		_childDirectoryList.add(directory);
+	}
 }
