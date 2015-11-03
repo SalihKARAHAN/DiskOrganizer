@@ -5,11 +5,18 @@ package org.discorganizer.controller;
 
 import java.awt.ContainerOrderFocusTraversalPolicy;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonUtil;
+
 import org.discorganizer.Main;
 import org.discorganizer.library.ioc.Container;
 import org.discorganizer.manager.CategoryManager;
 import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.provider.contract.IIOManager;
+import org.discorganizer.schema.Category;
+import org.discorganizer.schema.Disk;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -52,7 +59,16 @@ public class MainController {
 
 			@Override
 			public void handle(ActionEvent event) {
-				_categoryManager.CreateCategory(textCategoryInput.getText());
+				try {
+					Category addedCategory = _categoryManager.CreateCategory(textCategoryInput.getText());
+					Disk.AddCategory(addedCategory);
+					
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				dialog.close();
 			}
 			

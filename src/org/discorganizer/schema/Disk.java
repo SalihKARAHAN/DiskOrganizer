@@ -1,14 +1,20 @@
 package org.discorganizer.schema;
 
+import java.util.ArrayList;
+
 public class Disk {
 
 	private static final Disk _disk;
 	
 	private static Directory _systemDirectory;
-	private java.util.List<Directory> _categoryDirectory;
+	private java.util.List<Category> _categoryDirectory;
 	
 	static{
 		_disk = new Disk();
+	}
+	
+	public Disk() {
+		_categoryDirectory = new ArrayList<Category>();
 	}
 	
 	//Todo@salih GetInstance metodu singleton olmalı!
@@ -22,6 +28,10 @@ public class Disk {
 	
 	public static String GetDiskPath(){
 		return _systemDirectory.GetPath();
+	}
+	
+	public static void AddCategory(Category category){
+		_disk._categoryDirectory.add(category);
 	}
 
 }

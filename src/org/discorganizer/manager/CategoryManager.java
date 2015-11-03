@@ -3,9 +3,11 @@
  */
 package org.discorganizer.manager;
 
+import org.discorganizer.exception.Guard;
 import org.discorganizer.provider.contract.IEnvironmentProvider;
 import org.discorganizer.provider.contract.IIOManager;
 import org.discorganizer.schema.Category;
+import org.discorganizer.schema.Directory;
 import org.discorganizer.schema.Disk;
 
 /**
@@ -25,18 +27,32 @@ public class CategoryManager {
 		_io = ioManager;
 		_environment = environmentProvider;
 	}
-	
-	public void CreateCategory(String name){
-		CreateCategory(name,null);
+
+	public Category CreateCategory(String name) throws Exception {
+		return CreateCategory(name, null);
 	}
 
-	public void CreateCategory(String name, Category parentCategory) {
-		// ToDo@salih#1 Create Directory for Category
+	/**
+	 * 
+	 * @param name Name of Category
+	 * @param parentCategory if category as e child category you must a define its parent category
+	 * @return
+	 * @throws Exception
+	 */
+	public Category CreateCategory(String name, Category parentCategory) throws Exception {
+		Category category = new Category();
+		category.SetName(name);
+		
+		Directory categoryDirectory = null;
+		
 		if (parentCategory == null) {
-//			String rootPath = _environment.GetDiskRootPath();
-			_io.CreateDirectory(name, Disk.GetDiskPath());
-		}else {
-			_io.CreateDirectory(name, parentCategory.GetDirectory().GetPath());
+			categoryDirectory = _io.CreateDirectory(name, _environment.GetDiskRootPath());
+		} else {
+			categoryDirectory = _io.CreateDirectory(name, parentCategory.GetDirectory().GetPath());
 		}
+		
+		Guard.NullCheck(categoryDirectory).Throw();
+		category.SetDirectory(categoryDirectory);
+		return category;
 	}
 }

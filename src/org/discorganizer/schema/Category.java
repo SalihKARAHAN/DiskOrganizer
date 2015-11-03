@@ -3,22 +3,36 @@
  */
 package org.discorganizer.schema;
 
+import org.discorganizer.exception.Guard;
+import org.discorganizer.exception.Thrower;
+
 /**
  * @author Salih.KARAHAN
  *
  */
 public class Category {
-	private String _name;
-	private Directory _directory;
-	private Category _parentCategory;
-	private java.util.List<Category> _childCategoryList;
-
-	public String GetName() {
-		return _name;
+	private String _name; // kategorinin ismi
+	private Directory _directory; // kategorinin temsil ettiği klasör
+	private Category _parentCategory; // kategorinin evebeyn kategorisi
+	private java.util.List<Category> _childCategoryList; // kategorinin çocuk kategorileri
+	
+	public String GetName(){
+		return this._name;
 	}
 
-	public Directory GetDirectory() {
-		return _directory;
+	public Directory GetDirectory() throws Exception {
+		Guard.NullCheck(_directory).Throw();
+		return this._directory;
+	}
+	
+	public void SetDirectory(Directory directory){
+		if(_directory == null){
+			_directory = directory;
+		}
+	}
+	
+	public void SetName(String categoryName){
+		this._name = categoryName;
 	}
 
 	public boolean HasParent() {
