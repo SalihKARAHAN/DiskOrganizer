@@ -11,6 +11,9 @@ import javax.json.JsonObjectBuilder;
 import javax.json.JsonUtil;
 
 import org.discorganizer.Main;
+import org.discorganizer.data.contract.ICategoryRepository;
+import org.discorganizer.data.contract.IConnector;
+import org.discorganizer.data.contract.Query;
 import org.discorganizer.library.ioc.Container;
 import org.discorganizer.manager.CategoryManager;
 import org.discorganizer.provider.contract.IEnvironmentProvider;
@@ -62,8 +65,10 @@ public class MainController {
 				try {
 					Category addedCategory = _categoryManager.CreateCategory(textCategoryInput.getText());
 					Disk.AddCategory(addedCategory);
-					
-					
+					ICategoryRepository categoryRepository = Container.Resolve(ICategoryRepository.class);
+					Query query = categoryRepository.CreateCategory(addedCategory);
+					IConnector connector = Container.Resolve(IConnector.class);
+					connector.Execute(query);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
