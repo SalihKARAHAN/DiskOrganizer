@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+	prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.discorganizer.controller.MainController">
+	<children>
+		<MenuBar layoutX="81.0" layoutY="45.0" prefHeight="25.0"
+			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+			AnchorPane.topAnchor="0.0">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Close" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Edit">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Delete" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem mnemonicParsing="false" text="About" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<SplitPane dividerPositions="0.29797979797979796" layoutX="133.0"
+			layoutY="34.0" prefHeight="366.0" prefWidth="600.0"
+			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+			<items>
+				<AnchorPane maxWidth="200.0" minHeight="0.0" minWidth="0.0"
+					prefHeight="160.0" prefWidth="100.0">
+					<children>
+						<SplitPane dividerPositions="0.5" layoutX="8.0" layoutY="52.0"
+							orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0"
+							AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+							AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<items>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="100.0" prefWidth="160.0">
+									<children>
+										<ListView layoutX="-13.0" layoutY="-8.0" prefHeight="200.0"
+											prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+											AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+											AnchorPane.topAnchor="0.0">
+											<contextMenu>
+												<ContextMenu>
+													<items>
+														<MenuItem text="Add Category" onAction="#AddCategoryContextClick" />
+													</items>
+												</ContextMenu>
+											</contextMenu>
+										</ListView>
+									</children>
+								</AnchorPane>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="100.0" prefWidth="160.0" />
+							</items>
+						</SplitPane>
+					</children>
+				</AnchorPane>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+					prefWidth="100.0">
+					<children>
+						<TabPane layoutX="92.0" layoutY="77.0" prefHeight="200.0"
+							prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"
+							AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+							AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<tabs>
+								<Tab text="Untitled Tab 1">
+									<content>
+										<AnchorPane minHeight="0.0" minWidth="0.0"
+											prefHeight="180.0" prefWidth="200.0" />
+									</content>
+								</Tab>
+								<Tab text="Untitled Tab 2">
+									<content>
+										<AnchorPane minHeight="0.0" minWidth="0.0"
+											prefHeight="180.0" prefWidth="200.0">
+											<children>
+												<TreeTableView layoutX="70.0" layoutY="58.0"
+													prefHeight="200.0" prefWidth="200.0"
+													AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+													AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+													<columns>
+														<TreeTableColumn prefWidth="75.0" text="C1" />
+														<TreeTableColumn prefWidth="75.0" text="C2" />
+													</columns>
+													<contextMenu>
+														<ContextMenu>
+															<items>
+																<MenuItem mnemonicParsing="false" text="Unspecified Action" />
+															</items>
+														</ContextMenu>
+													</contextMenu>
+												</TreeTableView>
+											</children>
+										</AnchorPane>
+									</content>
+								</Tab>
+							</tabs>
+						</TabPane>
+					</children>
+				</AnchorPane>
+			</items>
+		</SplitPane>
+	</children>
+</AnchorPane>
